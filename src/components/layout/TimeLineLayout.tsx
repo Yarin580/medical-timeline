@@ -55,8 +55,7 @@ const TimeLineLayout: React.FC<TimeLineCardProps> = ({ medicalRecords }) => {
     <div className="w-full h-full bg-slate-900">
       <button
         onClick={() => scroll("left")}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-slate-800 hover:bg-slate-700 text-white rounded-full p-2 shadow-lg transition-all duration-200"
-        aria-label="Scroll left"
+        className="absolute left-4 top-1/2 z-10 bg-slate-800 hover:bg-slate-700 text-white rounded-full p-2"
       >
         <ArrowLeft className="w-6 h-6" />
       </button>
@@ -64,8 +63,7 @@ const TimeLineLayout: React.FC<TimeLineCardProps> = ({ medicalRecords }) => {
       {/* Right Arrow Button */}
       <button
         onClick={() => scroll("right")}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-slate-800 hover:bg-slate-700 text-white rounded-full p-2 shadow-lg transition-all duration-200"
-        aria-label="Scroll right"
+        className="absolute right-4 top-1/2  z-10 bg-slate-800 hover:bg-slate-700 text-white rounded-full p-2 "
       >
         <ArrowRight className="w-6 h-6" />
       </button>
