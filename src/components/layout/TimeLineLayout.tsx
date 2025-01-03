@@ -1,15 +1,19 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import TimeLineCard from "../TimeLine/TimeLineCard/TimeLineCard";
 import { MedicalRecord } from "../../types/MedicalRecord";
 import TimelineLine from "../TimeLine/TimeLineLine";
 import TimelineCardWrapper from "../TimeLine/TimeLineCardWrapper";
-import { ArrowLeft, ArrowRight } from "@mui/icons-material";
+import ScrollButton from "../core/ScrollButton";
+import { SwapHorizontalCircle, SwapVerticalCircle } from "@mui/icons-material";
 
 interface TimeLineCardProps {
   medicalRecords: MedicalRecord[];
 }
 
 const TimeLineLayout: React.FC<TimeLineCardProps> = ({ medicalRecords }) => {
+  // state to determine if the scroll direction is vertical
+  const [isVertical, setIsVertical] = useState(false);
+
   // Creates a ref to store the IntersectionObserver instance
   const observerRef = useRef<IntersectionObserver | null>(null);
 
@@ -37,36 +41,47 @@ const TimeLineLayout: React.FC<TimeLineCardProps> = ({ medicalRecords }) => {
     return () => observerRef.current?.disconnect();
   }, []);
 
-  const scroll = (direction: "left" | "right") => {
-    if (scrollContainerRef.current) {
-      const scrollAmount = 500; // Adjust this value to control scroll distance
-      const newScrollPosition =
-        scrollContainerRef.current.scrollLeft +
-        (direction === "left" ? -scrollAmount : scrollAmount);
+  const scroll = (direction: "prev" | "next") => {
+    if (!scrollContainerRef.current) return;
 
-      scrollContainerRef.current.scrollTo({
-        left: newScrollPosition,
-        behavior: "smooth",
-      });
-    }
+    const scrollAmount = 300;
+    const isPrev = direction === "prev";
+
+    const axis = isVertical ? "scrollTop" : "scrollLeft";
+    const offset = isPrev ? -scrollAmount : scrollAmount;
+
+    const newScrollPosition = scrollContainerRef.current[axis] + offset;
+
+    scrollContainerRef.current.scrollTo({
+      [isVertical ? "up" : "left"]: newScrollPosition,
+      behavior: "smooth",
+    });
   };
 
   return (
     <div className="w-full h-full bg-slate-900">
       <button
-        onClick={() => scroll("left")}
-        className="absolute left-4 top-1/2 z-10 bg-slate-800 hover:bg-slate-700 text-white rounded-full p-2"
+        onClick={() => setIsVertical(!isVertical)}
+        className="absolute top-4 right-4 z-20 bg-slate-800 hover:bg-slate-700 text-white rounded-lg p-2 shadow-lg transition-all duration-200 flex items-center gap-2"
+        aria-label="Toggle layout"
       >
-        <ArrowLeft className="w-6 h-6" />
+        {isVertical ? (
+          <SwapHorizontalCircle className="w-5 h-5" />
+        ) : (
+          <SwapVerticalCircle className="w-5 h-5" />
+        )}
+        <span className="text-sm">
+          {isVertical ? "Horizontal" : "Vertical"}
+        </span>
       </button>
-
-      {/* Right Arrow Button */}
-      <button
-        onClick={() => scroll("right")}
-        className="absolute right-4 top-1/2  z-10 bg-slate-800 hover:bg-slate-700 text-white rounded-full p-2 "
-      >
-        <ArrowRight className="w-6 h-6" />
-      </button>
+      <ScrollButton
+        direction={isVertical ? "up" : "left"}
+        onClick={() => scroll("prev")}
+      />
+      <ScrollButton
+        direction={isVertical ? "down" : "right"}
+        onClick={() => scroll("next")}
+      />
 
       <div
         className="relative flex h-full items-center overflow-x-scroll scrool-smooth"
