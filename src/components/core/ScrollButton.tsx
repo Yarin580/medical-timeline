@@ -2,8 +2,8 @@ import React from "react";
 import {
   ArrowLeft,
   ArrowRight,
-  ArrowUpward,
-  ArrowDownward,
+  ArrowDropUp,
+  ArrowDropDown,
 } from "@mui/icons-material";
 
 interface ScrollButtonProps {
@@ -27,8 +27,8 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ direction, onClick }) => {
       : direction === "right"
       ? ArrowRight
       : direction === "up"
-      ? ArrowUpward
-      : ArrowDownward;
+      ? ArrowDropUp
+      : ArrowDropDown;
 
   return (
     <button
