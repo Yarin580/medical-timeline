@@ -1,5 +1,8 @@
 # Medical History Timeline
 
+## Demo
+
+![TimeLine Demo](https://github.com/Yarin580/medical-timeline/blob/main/src/assets/ProjectOverview.gif)
 ## Features
 
 - Interactive timeline visualization
