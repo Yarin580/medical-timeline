@@ -9,7 +9,7 @@ export const useMedicalHistory = () => {
   const [error, setError] = useState<string | null>(null);
   const [patientInfo, setPatientInfo] = useState<Patient>();
 
-  // In the future, we can use this function to fetch data from an API
+  // In the future, can use this function to fetch data from an API
   const fetchCsvData = async (url: string) => {
     try {
       const res = await fetch(url);

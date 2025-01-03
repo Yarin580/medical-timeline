@@ -18,7 +18,7 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ direction, onClick }) => {
       : direction === "right"
       ? "right-4 top-1/2 transform -translate-y-1/2"
       : direction === "up"
-      ? "top-20 left-1/2 -translate-x-1/2"
+      ? " left-1/2 -translate-x-1/2"
       : "bottom-4 left-1/2 transform -translate-x-1/2";
 
   const Icon =

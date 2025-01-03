@@ -15,11 +15,11 @@ const TimelineCardWrapper: React.FC<TimelineCardWrapperProps> = ({
     <div
       className={`${
         isVertical ? "h-[500px] w-full" : "flex-none w-[500px]"
-      } flex justify-center  relative`}
+      } flex justify-center`}
     >
       <LineDot />
       <div
-        className={`absolute w-[400px] timeline-card opacity-0 ${
+        className={`relative w-[400px] timeline-card opacity-0 ${
           isVertical
             ? index % 2 === 0
               ? "left-[calc(50%+1rem)]"
