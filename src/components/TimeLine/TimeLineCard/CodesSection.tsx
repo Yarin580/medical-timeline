@@ -33,12 +33,12 @@ const CodesSection: React.FC<CodesSectionProps> = ({ codes }) => {
                   fontFamily: "monospace",
                   fontSize: "0.875rem",
                   textAlign: "center",
-                  color: "#c4b5fd",
-                  backgroundColor: "rgba(139, 92, 246, 0.2)",
-                  border: "1px solid rgba(139, 92, 246, 0.3)",
+                  color: "rgba(179, 217, 255)",
+                  backgroundColor: "rgba(0, 64, 128)",
+                  border: "1px solid rgba(0, 51, 102)",
                   transition: "background-color 0.2s",
                   "&:hover": {
-                    backgroundColor: "rgba(139, 92, 246, 0.3)",
+                    backgroundColor: "rgba(0, 64, 128, 0.2)",
                   },
                 }}
               >

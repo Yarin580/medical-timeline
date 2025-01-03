@@ -25,6 +25,7 @@ const CardHeader: React.FC<CardHeaderProps> = ({ date, chargePrice }) => {
         sx={{
           px: 2,
           py: 0.5,
+          fontSize: "1rem",
           borderRadius: "9999px",
           fontWeight: 600,
           backgroundColor:
