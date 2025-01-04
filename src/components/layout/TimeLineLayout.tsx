@@ -4,7 +4,7 @@ import { MedicalRecord } from "../../types/MedicalRecord";
 import TimelineLine from "../TimeLine/TimeLineLine";
 import TimelineCardWrapper from "../TimeLine/TimeLineCardWrapper";
 import ScrollButton from "../core/ScrollButton";
-import { useTimelineDirection } from "../../context/TimeLineDirectionContext";
+import { useTimelineDirection } from "../../context/TimelineDirectionContext";
 import useScroll from "../../hooks/useScroll";
 import useTimelineAnimation from "../../hooks/useTimelineAnimation";
 

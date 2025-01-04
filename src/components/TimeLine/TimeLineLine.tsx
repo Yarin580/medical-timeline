@@ -1,5 +1,5 @@
 import React from "react";
-import { useTimelineDirection } from "../../context/TimeLineDirectionContext";
+import { useTimelineDirection } from "../../context/TimelineDirectionContext";
 
 const TimelineLine: React.FC = () => {
   const { isVertical } = useTimelineDirection();

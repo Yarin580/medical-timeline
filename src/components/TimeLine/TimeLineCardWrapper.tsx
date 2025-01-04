@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from "react";
 import LineDot from "./LineDot";
-import { useTimelineDirection } from "../../context/TimeLineDirectionContext";
+import { useTimelineDirection } from "../../context/TimelineDirectionContext";
 
 type TimelineCardWrapperProps = PropsWithChildren & {
   index: number;

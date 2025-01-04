@@ -1,5 +1,5 @@
 import "./App.css";
-import { TimelineDirectionProvider } from "./context/TimeLineDirectionContext";
+import { TimelineDirectionProvider } from "./context/TimelineDirectionContext";
 import PatientMedicalHistoryPage from "./pages/PatientMedicalHistoryPage";
 
 function App() {

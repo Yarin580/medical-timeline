@@ -2,7 +2,7 @@ import React from "react";
 import { useMedicalHistory } from "../hooks/useMedicalHistory";
 import TimeLineLayout from "../components/layout/TimeLineLayout";
 import { CircularProgress } from "@mui/material";
-import { useTimelineDirection } from "../context/TimeLineDirectionContext";
+import { useTimelineDirection } from "../context/TimelineDirectionContext";
 import { SwapHorizontalCircle, SwapVerticalCircle } from "@mui/icons-material";
 
 const PatientMedicalHistoryPage: React.FC = () => {
