@@ -9,53 +9,85 @@
 - Medical record aggregation
 - CPT code linking
 
-## Projecs Structure
+## **Tech Stack**
+
+- **Frontend**: React 18 with TypeScript
+- **Component Library**: Material-UI 5.x.x, TailwindCSS 3.x.x
+- **Bundler**: Vite
+
+---
+
+## Project Structure
 
 ```
 public/
 ├── dataforuitask.csv # csv file for mocking medical record
 src/
+├── assets/            # Static assets
 ├── components/
-│   ├── layout/          # Layout components
-│   └── TimeLine/        # Timeline components
-├── hooks/               # Custom hooks
-├── types/              # TypeScript definitions
-├── pages/              # Pages
-├── tests/              # Unit Tests
-└── utils/              # Utility functions
+│   ├── core/          # Core components
+│   ├── layout/        # Layout components
+│   └── TimeLine/      # Timeline components
+├── context/           # Context providers
+├── hooks/             # Custom hooks
+├── pages/             # Pages
+├── tests/             # Unit Tests
+├── types/             # TypeScript definitions
+└── utils/             # Utility functions
 ```
 
-## Files Expain
+## Files Explanation
 
 ### `src` Directory
 
 The `src` directory contains the core codebase:
 
-- **components**: Modular, reusable React components used across the app.
-  - **layout**
+- **`components/`**:
+
+  - **`core/`**
+
+    - `ScrollButton.tsx`: Button component for scrolling the timeline.
+
+  - **`layout/`**
+
     - `TimeLineLayout.tsx`: The main layout for displaying the timeline.
-  - **TimeLine**: Folder containing all components related to the timeline feature.
-    - **TimeLineCard**
+
+  - **`TimeLine/`**: Folder containing all components related to the timeline feature.
+    - **`TimeLineCard/`**
       - `CardHeader.tsx`: Handles the header of timeline cards.
       - `CodesSection.tsx`: Displays relevant medical codes in the card.
       - `DiagnosticsSection.tsx`: Displays diagnostic information in the card.
       - `TagsSection.tsx`: Shows tags related to the medical record code.
       - `TimeLineCard.tsx`: The main card component for a timeline entry.
-      - `TimeLineCardWrapper.tsx`: Wraps individual cards for additional styling or logic.
     - `LineDot.tsx`: Visualizes dots on the timeline line.
-    - `TimeLineContainer.tsx`: Contains and organizes the entire timeline.
+    - `TimeLineCardWrapper.tsx`: Wraps individual cards for additional styling or logic.
     - `TimeLineLine.tsx`: Draws the visual timeline.
-- **hooks**
+
+- **`context/`**
+
+  - `TimelineDirectionContext.tsx`: Context provider for managing timeline orientation.
+
+- **`hooks/`**
+
   - `useMedicalHistory.tsx`: A custom hook for fetching and managing medical history data.
-- **pages**
+  - `useScroll.tsx`: A custom hook for handling scroll functionality.
+  - `useTimelineAnimation.tsx`: A custom hook for handling timeline animations.
+
+- **`pages/`**
+
   - `PatientMedicalHistoryPage.tsx`: The main page for viewing a patient's medical history.
-- **tests**
-  - `aggrgatePatientMedicalHistory.test.ts`: Unit tests for medical history aggregation utilities.
+
+- **`tests/`**
+
+  - `aggregatePatientMedicalHistory.test.ts`: Unit tests for medical history aggregation utilities.
   - `getProducerByCode.test.ts`: Unit tests for retrieving medical producers by code.
-- **types**
+
+- **`types/`**
+
   - `MedicalRecord.ts`: Type definitions for medical record data.
-  - `Patient.ts`: Type definitions for patient information includes usefull functions.
-- **utils**
+  - `Patient.ts`: Type definitions for patient information includes useful functions.
+
+- **`utils/`**
   - `medicalHistoryAggregation.ts`: Utility functions for aggregating medical history data.
   - `procedures.ts`: Utility functions for handling medical procedures.
 
@@ -67,7 +99,7 @@ The `src` directory contains the core codebase:
 
 ### `public` Directory
 
-Contain csv file that mock the api Data `dataforuitask.csv`.
+Contains the CSV file that mocks the API data `dataforuitask.csv`.
 
 ## Running the App
 
@@ -90,10 +122,3 @@ Run unit tests with:
 ```bash
 npm test
 ```
-
-## Tech Stack
-
-- React + TypeScript
-- Tailwind CSS
-- Material-UI
-- Jest
