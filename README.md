@@ -96,6 +96,7 @@ The `src` directory contains the core codebase:
 - `App.tsx`: The main entry point of the React app.
 - `App.css`, `index.css`: Stylesheets for global and app-specific styling.
 - `main.tsx`: Bootstraps the React app with the main component.
+- `TODO.md`: Contain UX aspect to implement
 
 ### `public` Directory
 
